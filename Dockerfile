@@ -6,7 +6,7 @@ RUN npm install -g http-server
 # make the 'app' folder the current working directory
 WORKDIR /app
 
-# copy both 'package.json' and 'package-lock.json' (if available)
+# copy both 'package.json' and 'package-lock.json'
 COPY package*.json ./
 
 # install project dependencies
@@ -18,5 +18,5 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 8080
 CMD [ "http-server", "dist" ]

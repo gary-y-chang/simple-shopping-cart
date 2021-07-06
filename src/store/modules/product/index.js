@@ -13,7 +13,7 @@ const mutations = {
 const actions = {
   getProductItems ({ commit }) {
    
-    axios.get('/api/products').then((response) => {
+    axios.get(process.env.VUE_APP_API_URL+ '/api/products').then((response) => {
       console.log(' response.data ==> '+ response.data.length)
       commit('UPDATE_PRODUCT_ITEMS', response.data)
     });

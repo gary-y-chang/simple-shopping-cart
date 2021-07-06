@@ -12,22 +12,22 @@ const mutations = {
 
 const actions = {
   getCartItems ({ commit }) {
-    axios.get('/api/cart/5f1a3e7911ea43136d1fd0c8').then((response) => {
+    axios.get(process.env.VUE_APP_API_URL + '/api/cart/5f1a3e7911ea43136d1fd0c8').then((response) => {
       commit('UPDATE_CART_ITEMS', response.data);
     });
   },
   addCartItem ({ commit }, cartItem) {
-    axios.post('/api/cart/add', cartItem).then((response) => {
+    axios.post(process.env.VUE_APP_API_URL+ '/api/cart/add', cartItem).then((response) => {
       commit('UPDATE_CART_ITEMS', response.data)
     });
   },
   removeCartItem ({ commit }, cartItem) {
-    axios.post('/api/cart/delete', cartItem).then((response) => {
+    axios.post(process.env.VUE_APP_API_URL+ '/api/cart/delete', cartItem).then((response) => {
       commit('UPDATE_CART_ITEMS', response.data)
     });
   },
   removeAllCartItems ({ commit }) {
-    axios.post('/api/cart/delete/all').then((response) => {
+    axios.post(process.env.VUE_APP_API_URL+ '/api/cart/delete/all').then((response) => {
       commit('UPDATE_CART_ITEMS', response.data)
     });
   }
